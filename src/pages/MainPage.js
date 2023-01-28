@@ -6,7 +6,7 @@ import Man from "../assests/picWithMan.svg"
 import Success from "../assests/success.svg";
 import Invest from "../assests/investment.svg";
 import Finance from "../assests/finance.svg";
-
+import { Link } from 'react-router-dom'
 export default function MainPage() {
     return (
         <>
@@ -22,9 +22,11 @@ export default function MainPage() {
                         Easily track your spending, create a budget and make financial decisions with your user friendly app.
                     </div>
                     <div className="flex">
+                        <Link to="/box">
                         <button className='bg-[#7B62FF] flex gap-4 items-center align-middle text-white px-6 py-4 mr-8 rounded-md ' >
-                            Get Started <img src={Arrow} width={30} />
+                            Chat Box <img src={Arrow} width={30} />
                         </button>
+                        </Link>
                         <button className=' p-2 flex gap-4 items-center align-middle`'>
                             <img src={Play} width={30} /> Watch Demos
                         </button>

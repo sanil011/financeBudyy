@@ -31,6 +31,7 @@ export default App;
 
 const AuthRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   if (!user) {
     return <Navigate to="/" replace />
   }

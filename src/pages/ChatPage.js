@@ -1,6 +1,7 @@
 import React, { useState,useRef } from 'react'
 import { ReciveMessage, SendMessage } from '../component/MessageReceive'
 import Header from '../component/header';
+import FormQuestion from '../component/FormQuestion';
 const InputBox = () => {
     const [message, setMessage] = useState();
     const sendMessage = () => {
@@ -19,9 +20,10 @@ function ChatPage() {
         <div className=''>
             <Header/>
             <div className='my-10 max-w-7xl mx-auto h-screen border-2 border-violet-200 rounded-lg h-[75vh]'>
-                <div className='h-[89%] overflow-y-auto pb-2 px-2'>
+                <div className='h-[89%] overflow-y-auto pb-2 px-2 bg-slate-50'>
                     <ReciveMessage data={"garv"} />
                     <SendMessage data={"garv"} />
+                    <FormQuestion/>
                     <div ref={bottomRef}/>
                 </div>
                 <InputBox />

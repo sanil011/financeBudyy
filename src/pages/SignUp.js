@@ -10,6 +10,7 @@ function SignUp() {
   const [error,setError]=useState("");
   const authent=useContext(AuthContext);
   const handleSignUp= async (data) => {
+    authent.setLoading(true);
     const {name,email,password}=data;
     try{
         const d=query(collection(db,"users"),where("email","==",email));
@@ -30,6 +31,9 @@ function SignUp() {
     {
         setError("Client-Side Error occurred");
         console.log(err);
+    }
+    finally{
+      authent.setLoading(false);
     }
   }
   return (
