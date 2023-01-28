@@ -1,5 +1,6 @@
 import React, { useState,useRef } from 'react'
 import { ReciveMessage, SendMessage } from '../component/MessageReceive'
+import Header from '../component/header';
 const InputBox = () => {
     const [message, setMessage] = useState();
     const sendMessage = () => {
@@ -16,7 +17,8 @@ function ChatPage() {
     const bottomRef = useRef(null);
     return (
         <div className=''>
-            <div className='my-20 max-w-7xl mx-auto h-screen border-2 border-violet-200 rounded-lg h-[80vh]'>
+            <Header/>
+            <div className='my-10 max-w-7xl mx-auto h-screen border-2 border-violet-200 rounded-lg h-[75vh]'>
                 <div className='h-[90%] overflow-y-auto pb-2 px-2'>
                     <ReciveMessage data={"garv"} />
                     <SendMessage data={"garv"} />
