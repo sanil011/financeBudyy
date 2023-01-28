@@ -2,35 +2,34 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import {useForm} from "react-hook-form"
 import {AuthContext} from '../context/AuthContext';
+import { db } from "../firebase"
+import {addDoc,collection,query, where, getDocs } from "firebase/firestore";
 
 function SignUp() {
   const {register,handleSubmit,formState:{errors}}=useForm();
   const [error,setError]=useState("");
   const authent=useContext(AuthContext);
   const handleSignUp= async (data) => {
-    data.orders=[];
+    const {name,email,password}=data;
     try{
-      const res=await fetch("/api/signin",{
-        method:"post",
-        body:JSON.stringify(data)
-      })
-      const resJson=await res.json();
-      if(resJson.alreadyExist) 
-      {
-        setError("Email Id Already Registered!!!!");
-      }
-      else if(resJson.accountCreated)
-      {
-        authent.signUp(data.email, data.password)
-      }
-      else{
-        setError("Server Error Occured");
-      }
+        const d=query(collection(db,"users"),where("email","==",email));
+        const querySnapshot=await getDocs(d);
+        if(!querySnapshot.empty) 
+        {
+            setError("Email Id Already Registered!!!!");
+            return;
+        }
+        await addDoc(collection(db,"users"),{
+            name,
+            email,
+            password,
+        })
+        authent.signup(email,password);
     }
     catch(err)
     {
-      console.log(err);
-      setError("Client Side error occured, Try again later");
+        setError("Client-Side Error occurred");
+        console.log(err);
     }
   }
   return (

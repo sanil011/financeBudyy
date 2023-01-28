@@ -54,7 +54,7 @@ function Login() {
               )}
             </div>
             <div className="text-center mt-3">
-              <input type="submit" value="Log In" className="transtion duration-300 focus:bg-red-700 py-3 px-10 text-xl text-white bg-violet-500 rounded-2xl" />
+              <input type="submit" value="Log In" className="transtion duration-300 focus:bg-violet-700 py-3 px-10 text-xl text-white bg-violet-500 rounded-2xl" />
               <p className="mt-4 text-sm">Don't Have An Account? <Link to="/signup" className="underline">Sign In</Link></p>
             </div>
           </form>

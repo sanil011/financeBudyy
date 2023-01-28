@@ -1103,6 +1103,11 @@ video {
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
 
+.focus\:bg-violet-700:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(109 40 217 / var(--tw-bg-opacity));
+}
+
 @media (min-width: 768px) {
   .md\:block {
     display: block;
