@@ -7,6 +7,7 @@ function Login() {
   const [error, setError] = useState("");
   const authent = useContext(AuthContext);
   const handleSignUp = async (data) => {
+    authent.setLoading(true);
     try {
       const log = await authent.login(data.email, data.password)
       console.log(log)

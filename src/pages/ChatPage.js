@@ -4,7 +4,7 @@ import Header from '../component/header';
 const InputBox = () => {
     const [message, setMessage] = useState();
     const sendMessage = () => {
-        
+
     }
     return (
         <div className='h-[72px] p-[10px] flex bg-slate-100 items-center'>
