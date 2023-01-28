@@ -1,4 +1,5 @@
-import ChatPage from "./pages/ChatPage"
+import ChatPage from "./pages/ChatPage";
+import Portfolio from "./pages/portfolio";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import MainPage from "./pages/MainPage";
 import { AuthProvider } from "./context/AuthContext";
@@ -16,6 +17,8 @@ function App() {
             <Loader />
           </div>
           <Routes>
+
+            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/box" element={<AuthRoute><ChatPage /></AuthRoute>} />
             <Route path="/login" element={<ProtectRoute><Login /></ProtectRoute>} />
             <Route path="/signup" element={<ProtectRoute><SignUp /></ProtectRoute>} />
