@@ -4,7 +4,6 @@ import Play from "./assests/play.svg"
 function App() {
   return (
     <div>
-
       <Header />
       <div className="mx-20 my-28">
         <div className="w-1/2 px-16">
