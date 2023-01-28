@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import Logo from "../assests/dashboard.png";
+import { Link } from "react-router-dom"
 import { AuthContext } from '../context/AuthContext';
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
@@ -20,25 +21,29 @@ const Header = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='flex items-center gap-x-4'>
+                <div>
                     {
-                        user ? (
-                            <>
-                                <div className='font-semibold text-2xl'>Garv Kapoor</div>
+                        user ?
+                            <div className='flex items-center'>
+                                <div className='font-semibold text-xl mr-2'>Garv Kapoor</div>
                                 <button onClick={logout} className='bg-[#7B62FF] text-white p-2 rounded-md'>
                                     Log Out
                                 </button>
-                            </>
-                        )
+                            </div>
                             :
-                            <>
-                                <button className='mx-12 p-2 ' >
-                                    Login
-                                </button>
-                                <button className='bg-[#7B62FF] text-white p-2 rounded-md'>
-                                    Sign up
-                                </button>
-                            </>
+                            (
+                                <>
+                                    <Link to="/login" className='mx-12 p-2 ' >
+                                        Login
+                                    </Link>
+                                    <Link to="/signup">
+                                        <button className='bg-[#7B62FF] text-white p-2 rounded-md'>
+                                            Sign up
+                                        </button>
+                                    </Link>
+                                </>
+                            )
+
                     }
                 </div>
             </div>

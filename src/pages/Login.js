@@ -19,11 +19,13 @@ function Login() {
   return (
     <div>
       <div className="relative min-h-screen bg-white-200 flex justify-center items-center">
+        <div className="absolute w-60 h-60 rounded-xl bg-violet-500 -top-5 -left-16 z-0 transform rotate-45 hidden md:block"></div>
+        <div className="absolute w-48 h-48 rounded-xl bg-violet-500 bottom-6 right-6 transform rotate-12 hidden md:block"></div>
         <div className="transtion bg-white rounded-2xl hover:shadow-lg duration-300 p-6 max-w-sm">
           <form onSubmit={handleSubmit(handleSignUp)}>
             <div>
-              <h1 className="text-3xl font-bold text-center mb-4">Log In</h1>
-              <p className="text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide">Log in to get exclusive Discounts and new collection</p>
+              <h1 className="text-4xl font-bold text-center mb-4">Log In</h1>
+              <p className="text-center text-sm mb-8 font-semibold text-gray-700 tracking-wide">Log in to gain access to our exclusive ChatBot </p>
             </div>
             <div className="space-y-4">
               <div className=' text-red-600'>{error}</div>
@@ -54,11 +56,13 @@ function Login() {
               )}
             </div>
             <div className="text-center mt-3">
-              <input type="submit" value="Log In" className="transtion duration-300 focus:bg-violet-700 py-3 px-10 text-xl text-white bg-violet-500 rounded-2xl" />
+              <input type="submit" value="Log In" className="transtion duration-300 focus:bg-violet-700 py-2 px-12 text-xl text-white bg-violet-500 rounded-2xl" />
               <p className="mt-4 text-sm">Don't Have An Account? <Link to="/signup" className="underline">Sign In</Link></p>
             </div>
           </form>
         </div>
+        <div className="w-40 h-40 absolute bg-violet-500 rounded-full top-0 right-12 hidden md:block"></div>
+        <div className="w-20 h-40 absolute bg-violet-500 rounded-full bottom-20 left-10 transform rotate-45 hidden md:block"></div>
       </div>
     </div>
   )

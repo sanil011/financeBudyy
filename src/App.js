@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp"
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
+import Loader from "./component/Loader";
 function App() {
   return (
     <BrowserRouter>
@@ -23,19 +24,19 @@ function App() {
 }
 export default App;
 
-const GuestRoute=({children})=>{
+const AuthRoute=({children})=>{
   const {user}=useContext(AuthContext);
-  return <>
+  if(!user)
   {
-    !user?children:<Navigate to="/box"/>
+    return <Navigate to="/" replace/> 
   }
-  </>
+  return children;
 }
 const ProtectRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
-  return <>
-    {
-      user ? children : <Navigate to="/login"/>
-    }
-  </>
+  if(user)
+  {
+    return <Navigate to="/box" replace/>
+  }
+  return children;
 }
