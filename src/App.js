@@ -1,5 +1,5 @@
 import ChatPage from "./pages/ChatPage"
-import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import MainPage from "./pages/MainPage";
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
@@ -23,23 +23,19 @@ function App() {
 }
 export default App;
 
-// const GuestRoute=({children})=>{
-//   const {user}=useContext(AuthContext);
-//   if(!user)
-// }
-const AuthRoute=({children})=>{
+const GuestRoute=({children})=>{
   const {user}=useContext(AuthContext);
-  if(!user)
+  return <>
   {
-    return <Navigate to="/" replace/>
+    !user?children:<Navigate to="/box"/>
   }
-  return children;
+  </>
 }
 const ProtectRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
-  if(user)
-  {
-    return <Navigate to="/box" replace />
-  }
-  return children
+  return <>
+    {
+      user ? children : <Navigate to="/login"/>
+    }
+  </>
 }
