@@ -1,4 +1,3 @@
-import Header from "./component/header";
 import ChatPage from "./pages/ChatPage"
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom"
 import MainPage from "./pages/MainPage";
@@ -12,10 +11,11 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
+          <Route path="/box" element={<AuthRoute><ChatPage /></AuthRoute>} />
+          <Route path="/login" element={<ProtectRoute><Login /></ProtectRoute>} />
+          <Route path="/signup" element={<ProtectRoute><SignUp /></ProtectRoute>} />
           <Route path="/" element={<MainPage />} />
-          <Route path="/box" element={<ChatPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path='*' element={<Navigate to="/" replace />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
@@ -23,19 +23,23 @@ function App() {
 }
 export default App;
 
-const GuestRoute=({children})=>{
+// const GuestRoute=({children})=>{
+//   const {user}=useContext(AuthContext);
+//   if(!user)
+// }
+const AuthRoute=({children})=>{
   const {user}=useContext(AuthContext);
-  return <>
+  if(!user)
   {
-    !user?children:<Navigate to="/box"/>
+    return <Navigate to="/" replace/>
   }
-  </>
+  return children;
 }
 const ProtectRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
-  return <>
-    {
-      user ? children : <Navigate to="/login"/>
-    }
-  </>
+  if(user)
+  {
+    return <Navigate to="/box" replace />
+  }
+  return children
 }

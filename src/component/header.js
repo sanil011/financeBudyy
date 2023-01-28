@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Logo from "../assests/dashboard.png";
+import { AuthContext } from '../context/AuthContext';
 const Header = () => {
+    const { user, logout } = useContext(AuthContext);
     return (
         <div className='px-20 mb-[1rem] py-8 border-2 border-slate-200'>
             <div className='flex justify-between'>
@@ -18,13 +20,26 @@ const Header = () => {
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <button className='mx-12 p-2 ' >
-                        Login
-                    </button>
-                    <button className='bg-[#7B62FF] text-white p-2 rounded-md'>
-                        Sign up
-                    </button>
+                <div className='flex items-center gap-x-4'>
+                    {
+                        user ? (
+                            <>
+                                <div className='font-semibold text-2xl'>Garv Kapoor</div>
+                                <button onClick={logout} className='bg-[#7B62FF] text-white p-2 rounded-md'>
+                                    Log Out
+                                </button>
+                            </>
+                        )
+                            :
+                            <>
+                                <button className='mx-12 p-2 ' >
+                                    Login
+                                </button>
+                                <button className='bg-[#7B62FF] text-white p-2 rounded-md'>
+                                    Sign up
+                                </button>
+                            </>
+                    }
                 </div>
             </div>
         </div>

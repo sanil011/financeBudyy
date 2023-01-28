@@ -3,7 +3,6 @@ import { auth } from '../firebase';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut } from 'firebase/auth';
 export const AuthContext=React.createContext();
 
-
 export function AuthProvider({children}){
     const [user,setUser]=useState("");
     const [loading,setLoading]=useState(true)
@@ -32,6 +31,12 @@ export function AuthProvider({children}){
        } 
     },[])
 
+    useEffect(()=>{
+        if(user)
+        {
+            
+        }
+    },[user])
     const store={
         user,
         signup,
