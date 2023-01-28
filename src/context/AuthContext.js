@@ -41,8 +41,11 @@ export function AuthProvider({children}){
             {
                 const d=query(collection(db,"users"),where("email","==",user.email));
                 const querySnapshot=await getDocs(d);
-                console.log(querySnapshot.data());
+                querySnapshot.forEach((doc)=>{
+                    setUserDetails(doc.data());
+                })
             }
+            if(!user) setUserDetails({});
         })();
     },[user])
     const store={

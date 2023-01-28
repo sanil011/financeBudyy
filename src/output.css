@@ -746,6 +746,18 @@ video {
   height: 10rem;
 }
 
+.h-\[88\%\] {
+  height: 88%;
+}
+
+.h-\[\%\] {
+  height: %;
+}
+
+.h-\[89\%\] {
+  height: 89%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -778,6 +790,14 @@ video {
   width: 50%;
 }
 
+.min-w-\[\] {
+  min-width: ;
+}
+
+.min-w-\[29rem\] {
+  min-width: 29rem;
+}
+
 .max-w-\[50\%\] {
   max-width: 50%;
 }
@@ -788,6 +808,10 @@ video {
 
 .max-w-sm {
   max-width: 24rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .grow {

@@ -3,7 +3,7 @@ import Logo from "../assests/dashboard.png";
 import { Link } from "react-router-dom"
 import { AuthContext } from '../context/AuthContext';
 const Header = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout,userDetails } = useContext(AuthContext);
     return (
         <div className='px-20 mb-[1rem] py-8 border-2 border-slate-200'>
             <div className='flex justify-between'>
@@ -23,9 +23,9 @@ const Header = () => {
                 </div>
                 <div>
                     {
-                        user ?
+                        JSON.stringify(userDetails)!="{}" ?
                             <div className='flex items-center'>
-                                <div className='font-semibold text-xl mr-2'>Garv Kapoor</div>
+                                <div className='font-semibold text-xl mr-2'>{userDetails.name}</div>
                                 <button onClick={logout} className='bg-[#7B62FF] text-white p-2 rounded-md'>
                                     Log Out
                                 </button>
