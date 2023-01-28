@@ -1,8 +1,8 @@
-
+import ChatPage from "./pages/ChatPage";
 function App() {
   return (
     <div>
-      <h1 className='text-white'>asdfghjkl</h1>
+      <ChatPage/>
     </div>
   );
 }
