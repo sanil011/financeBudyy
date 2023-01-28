@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from "../assests/dashboard.png";
+import { Link } from "react-router-dom"
 const Header = () => {
     return (
         <div className='px-20 mb-[1rem] py-8 border-2 border-slate-200'>
@@ -19,12 +20,14 @@ const Header = () => {
                     </div>
                 </div>
                 <div>
-                    <button className='mx-12 p-2 ' >
+                    <Link to="/login" className='mx-12 p-2 ' >
                         Login
-                    </button>
-                    <button className='bg-[#7B62FF] text-white p-2 rounded-md'>
-                        Sign up
-                    </button>
+                    </Link>
+                    <Link to="/signup">
+                        <button className='bg-[#7B62FF] text-white p-2 rounded-md'>
+                            Sign up
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
