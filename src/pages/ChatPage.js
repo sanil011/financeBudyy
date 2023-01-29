@@ -1,7 +1,8 @@
-import React, { useState,useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import { ReciveMessage, SendMessage } from '../component/MessageReceive'
 import Header from '../component/header';
 import FormQuestion from '../component/FormQuestion';
+import { AuthContext } from '../context/AuthContext';
 const InputBox = () => {
     const [message, setMessage] = useState();
     const sendMessage = () => {
@@ -16,15 +17,16 @@ const InputBox = () => {
 }
 function ChatPage() {
     const bottomRef = useRef(null);
+    const { userDetails } = useContext(AuthContext)
+    console.log(userDetails);
     return (
         <div className=''>
-            <Header/>
-            <div className='my-10 max-w-7xl mx-auto h-screen border-2 border-violet-200 rounded-lg h-[75vh]'>
+            <Header />
+            <div className='my-10 max-w-7xl mx-auto  border-2 border-violet-200 rounded-lg h-[75vh]'>
                 <div className='h-[89%] overflow-y-auto pb-2 px-2 bg-slate-50'>
-                    <ReciveMessage data={"garv"} />
-                    <SendMessage data={"garv"} />
-                    <FormQuestion/>
-                    <div ref={bottomRef}/>
+                    <ReciveMessage data={userDetails.name} />
+                    <FormQuestion />
+                    <div ref={bottomRef} />
                 </div>
                 <InputBox />
             </div>

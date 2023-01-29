@@ -10,7 +10,6 @@ function Login() {
     authent.setLoading(true);
     try {
       const log = await authent.login(data.email, data.password)
-      console.log(log)
     }
     catch (err) {
       console.log(err);
@@ -57,7 +56,7 @@ function Login() {
               )}
             </div>
             <div className="text-center mt-3">
-              <input type="submit" value="Log In" className="transtion duration-300 focus:bg-violet-700 py-2 px-12 text-xl text-white bg-violet-500 rounded-2xl" />
+              <input type="submit" value="Log In" className="transtion duration-300 focus:bg-violet-700 py-2 px-12 text-xl  bg-violet-500 rounded-2xl" />
               <p className="mt-4 text-sm">Don't Have An Account? <Link to="/signup" className="underline">Sign In</Link></p>
             </div>
           </form>
